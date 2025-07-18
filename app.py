@@ -59,11 +59,12 @@ def delete_task(task_id):
     conn.close()
     return redirect(url_for('tasks'))
 
+application = app
 
 if __name__ == '__main__':
     app.run(debug=False,
     host='0.0.0.0', 
-    port=80
+    port=8080
     )
 
             
