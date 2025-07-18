@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import sqlite3
+import os
 
 app = Flask(__name__)
 
@@ -62,9 +63,10 @@ def delete_task(task_id):
 application = app
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8080))
     app.run(debug=False,
-    host='0.0.0.0', 
-    port=8080
+            host='0.0.0.0',
+            port=port
     )
 
             
