@@ -29,12 +29,12 @@ This repository contains a simple Flask-based Todo application designed for depl
 
 3. Run the application:
     ```bash
-    python app.py
+    python application.py
     ```
 
 ### Deploying to Elastic Beanstalk
 
-1. Zip your project files, including `.ebextensions`, `app.py`, `requirements.txt`, and the `templates` folder.
+1. Zip your project files, including `.ebextensions`, `application.py`, `requirements.txt`, and the `templates` folder.
 
 2. Upload the zip file using the AWS Elastic Beanstalk web console.
 
@@ -43,13 +43,13 @@ This repository contains a simple Flask-based Todo application designed for depl
 ### Notes
 
 - Configuration files for Elastic Beanstalk should be placed in the `.ebextensions` directory.
-- The entry point for Elastic Beanstalk is set as `application = app` in `app.py`.
+- The entry point for Elastic Beanstalk is set as `WSGIPath: application:app` in `.ebextensions/flask.config`.
 
 ## Project Structure
 
 ```
 .
-├── app.py
+├── application.py
 ├── requirements.txt
 ├── templates/
 │   ├── index.html
@@ -58,5 +58,3 @@ This repository contains a simple Flask-based Todo application designed for depl
 │   └── flask.config
 └── README.md
 ```
-
-##
