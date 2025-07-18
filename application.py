@@ -60,7 +60,6 @@ def delete_task(task_id):
     conn.close()
     return redirect(url_for('tasks'))
 
-application = app
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
