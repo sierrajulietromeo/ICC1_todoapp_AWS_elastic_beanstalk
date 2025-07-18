@@ -1,55 +1,62 @@
-# ICC1_todoapp
+# Flask Todo App for AWS Elastic Beanstalk
 
-## Purpose
-
-This repository is meant to be used as a basis for the ICC1 module at Ada.
-This is the first task for the part of learning for the capstone project.
-Learners will deploy this in a virtual machine on a Cloud Provider such as AWS, Azure, or GCP. 
-
-A simple Flask-based To-Do application that lets you manage tasks with priorities.
+This repository contains a simple Flask-based Todo application designed for deployment on AWS Elastic Beanstalk.
 
 ## Features
 
-- Add, view, and delete tasks
-- Tasks have priorities (lower number = higher priority)
-- Data stored in a local SQLite database
+- Add, view, and delete tasks with priorities
+- Uses SQLite for data storage
+- Ready for deployment on Elastic Beanstalk
 
 ## Getting Started
-
-- Azure: See the Tango Guide **[here](https://app.tango.us/app/workflow/Create-and-Configure-Azure-VM-for-Todo-App-58d526e854564c769259ad3d02b8c872)**
-- AWS: - AWS: **[here](https://app.tango.us/app/workflow/Launch-and-Configure-an-EC2-Monolithic-ToDo-App-on-AWS--IaaS--6818e7d54be2406cb9e9bc695784c313)**
 
 ### Prerequisites
 
 - Python 3.x
-- Flask
 
-### Installation
+### Local Development
 
-1. Clone this repository:
-    ```sh
-    git clone <repo-url>
-    cd ICC1_todoapp
+1. Create and activate a virtual environment:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
     ```
+
 2. Install dependencies:
-    ```sh
-    pip install flask
+    ```bash
+    pip install -r requirements.txt
     ```
 
-### Running the App
+3. Run the application:
+    ```bash
+    python app.py
+    ```
 
-**Note:** Running on port 80 may require root privileges.
+### Deploying to Elastic Beanstalk
 
-```sh
-sudo python3 app.py
-```
+1. Zip your project files, including `.ebextensions`, `app.py`, `requirements.txt`, and the `templates` folder.
+
+2. Upload the zip file using the AWS Elastic Beanstalk web console.
+
+3. Follow the prompts in the AWS portal to create and launch your environment.
+
+### Notes
+
+- Configuration files for Elastic Beanstalk should be placed in the `.ebextensions` directory.
+- The entry point for Elastic Beanstalk is set as `application = app` in `app.py`.
 
 ## Project Structure
 
-- `app.py` — Main Flask application
-- `todo.db` — SQLite database (created automatically)
-- `templates/` — HTML templates
+```
+.
+├── app.py
+├── requirements.txt
+├── templates/
+│   ├── index.html
+│   └── tasks.html
+├── .ebextensions/
+│   └── flask.config
+└── README.md
+```
 
-## License
-
-MIT License
+##
